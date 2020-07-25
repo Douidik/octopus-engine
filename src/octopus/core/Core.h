@@ -1,6 +1,8 @@
 #ifndef OCTOPUS_CORE_H
 #define OCTOPUS_CORE_H
 
+using namespace std::string_literals;
+
 /* Defining Platform specific macros, only Windows and Linux are supported for now */
 #ifdef _WIN32
     #define OCTO_WINDOWS
@@ -32,7 +34,7 @@ namespace Octo {
         static bool Initialize();
         static void Shutdown();
 
-        inline static bool IsInitialized() {
+        inline static bool IsActive() {
             return s_bInitialized;
         }
 

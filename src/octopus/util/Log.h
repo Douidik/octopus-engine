@@ -14,11 +14,10 @@ namespace Octo {
 
         static void Shutdown();
 
-        static inline std::shared_ptr<spdlog::logger> &GetOctoLogger() {
+        static inline std::shared_ptr<spdlog::logger> GetOctoLogger() {
             return s_pOctoLogger;
         }
-
-        static inline std::shared_ptr<spdlog::logger> &GetAppLogger() {
+        static inline std::shared_ptr<spdlog::logger> GetAppLogger() {
             return s_pAppLogger;
         }
 

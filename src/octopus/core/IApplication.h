@@ -1,31 +1,28 @@
 #ifndef OCTOPUS_IAPPLICATION_H
 #define OCTOPUS_IAPPLICATION_H
 
-#include "util/NonCopyable.h"
-#include <string>
-#include <chrono>
+#include "util/INonCopyable.h"
+#include "util/ICounted.h"
+#include "Window.h"
 
 namespace Octo {
 
-    class OCTO_API IApplication : private NonCopyable {
+    class OCTO_API IApplication : private INonCopyable, private ICounted {
     public:
-        IApplication(const std::string &sName);
-
-        virtual void update();
-
-        inline bool isRunning() const {
-            return m_bRunning;
-        }
-
+        IApplication(const std::string &sName, int windowWidth, int windowHeight);
         ~IApplication();
+
+        // Implement this method to run the main loop
+        virtual void run() = 0;
+        // Must be called in the run implemented function
+        void update();
+
+
+    protected:
+        Window m_window;
 
     private:
         const std::string m_sName;
-        bool m_bRunning;
-
-    private:
-        //Number of running applications
-        static unsigned int s_uiInstanceCount;
     };
 
 }

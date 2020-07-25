@@ -1,31 +1,25 @@
 #include "OctopusPCH.h"
 #include "IApplication.h"
+#include "Window.h"
 
 namespace Octo {
 
-    unsigned int IApplication::s_uiInstanceCount = 0;
-    using namespace std::chrono_literals;
-
-    IApplication::IApplication(const std::string &sName)
-        :m_sName(sName), m_bRunning(true)
+    IApplication::IApplication(const std::string &sName, int windowWidth, int windowHeight)
+        : m_sName(sName), m_window({sName, windowWidth, windowHeight})
     {
-        s_uiInstanceCount++;
-
-        if(!Core::IsInitialized()){
+        if(!Core::IsActive()){
             Core::Initialize();
         }
     }
 
     void IApplication::update() {
-
+        m_window.update();
     }
 
     IApplication::~IApplication()
     {
-        m_bRunning = false;
-        s_uiInstanceCount--;
-
-        if(s_uiInstanceCount <= 0 && Core::IsInitialized()) {
+        if(InstanceCount() == 1 && Core::IsActive()) { // Is the last running application and the core is running
+            //The core is not longer required
             Core::Shutdown();
         }
     }
