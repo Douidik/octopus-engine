@@ -27,6 +27,9 @@ using namespace std::string_literals;
 
 #endif
 
+using Bitfield = uint64_t;
+#define BIT(x) 1 << x
+
 namespace Octo {
 
     class OCTO_API Core {

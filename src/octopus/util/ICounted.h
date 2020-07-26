@@ -1,5 +1,5 @@
-#ifndef APPLICATION_ICOUNTED_H
-#define APPLICATION_ICOUNTED_H
+#ifndef OCTOPUS_ICOUNTED_H
+#define OCTOPUS_ICOUNTED_H
 
 /* This class count how many instance lives */
 class ICounted {
@@ -26,4 +26,4 @@ private:
     static unsigned int s_uInstanceCount;
 };
 
-#endif //APPLICATION_ICOUNTED_H
+#endif //OCTOPUS_ICOUNTED_H

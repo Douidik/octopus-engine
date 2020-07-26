@@ -14,7 +14,11 @@
 #include <map>
 #include <string>
 #include <memory>
+#include <stack>
+#include <fstream>
+#include <sstream>
 
+#include "util/GLDebug.h"
 #include "util/Log.h"
 
 #endif //OCTOPUS_PCH_H

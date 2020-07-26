@@ -1,5 +1,5 @@
-#ifndef APPLICATION_WINDOW_H
-#define APPLICATION_WINDOW_H
+#ifndef OCTOPUS_WINDOW_H
+#define OCTOPUS_WINDOW_H
 
 #include "util/ICounted.h"
 
@@ -40,6 +40,10 @@ namespace Octo {
             return m_properties;
         }
 
+        // Returns the native GLFW window pointer
+        inline GLFWwindow* native() {
+            return m_pNativeWindow;
+        }
 
     private:
         GLFWwindow* m_pNativeWindow;
@@ -48,4 +52,4 @@ namespace Octo {
 
 }
 
-#endif //APPLICATION_WINDOW_H
+#endif //OCTOPUS_WINDOW_H

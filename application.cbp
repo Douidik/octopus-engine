@@ -8,157 +8,238 @@
 		<Option virtualFolders="CMake Files\;CMake Files\vendor\;CMake Files\src\;CMake Files\src\octopus\;CMake Files\src\application\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/douidik/CLionProjects/octopus"/>
+				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/douidik/CLionProjects/octopus"/>
+				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/douidik/CLionProjects/octopus"/>
+				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="octopus">
-				<Option output="/home/douidik/CLionProjects/octopus/bin/Debug/liboctopus.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/douidik/CLionProjects/octopus/src/octopus"/>
+				<Option output="/home/douidik/dev/octopus/bin/Debug/liboctopus.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/douidik/dev/octopus/src/octopus"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DOCTO_BUILD_DLL"/>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/vendor/spdlog/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/octopus"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/application"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
+					<Add directory="/home/douidik/dev/octopus/src/application"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="octopus/fast">
-				<Option output="/home/douidik/CLionProjects/octopus/bin/Debug/liboctopus.so" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/douidik/CLionProjects/octopus/src/octopus"/>
+				<Option output="/home/douidik/dev/octopus/bin/Debug/liboctopus.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/douidik/dev/octopus/src/octopus"/>
 				<Option object_output="./"/>
 				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DOCTO_BUILD_DLL"/>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/vendor/spdlog/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/octopus"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/application"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
+					<Add directory="/home/douidik/dev/octopus/src/application"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="application">
-				<Option output="/home/douidik/CLionProjects/octopus/bin/Debug/application" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/douidik/CLionProjects/octopus/bin/Debug"/>
+				<Option output="/home/douidik/dev/octopus/bin/Debug/application" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/douidik/dev/octopus/bin/Debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/vendor/spdlog/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/octopus"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/application"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
+					<Add directory="/home/douidik/dev/octopus/src/application"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 application"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="application/fast">
-				<Option output="/home/douidik/CLionProjects/octopus/bin/Debug/application" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/douidik/CLionProjects/octopus/bin/Debug"/>
+				<Option output="/home/douidik/dev/octopus/bin/Debug/application" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/douidik/dev/octopus/bin/Debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/vendor/spdlog/include"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/octopus"/>
-					<Add directory="/home/douidik/CLionProjects/octopus/src/application"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
+					<Add directory="/home/douidik/dev/octopus/src/application"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 application/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/CLionProjects/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/application/main.cpp">
+		<Unit filename="/home/douidik/dev/octopus/src/application/CMakeFiles/application.dir/cmake_pch.hxx">
 			<Option target="application"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/Octopus.h">
+		<Unit filename="/home/douidik/dev/octopus/src/application/CMakeFiles/application.dir/cmake_pch.hxx.cxx">
+			<Option target="application"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/application/main.cpp">
+			<Option target="application"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/CMakeFiles/octopus.dir/cmake_pch.hxx">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/OctopusPCH.cpp">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/CMakeFiles/octopus.dir/cmake_pch.hxx.cxx">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/OctopusPCH.h">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/Octopus.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/core/Core.cpp">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/OctopusPCH.cpp">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/core/Core.h">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/OctopusPCH.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/core/IApplication.cpp">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Core.cpp">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/core/IApplication.h">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Core.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/util/Log.cpp">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Dependencies.cpp">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/util/Log.h">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Dependencies.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/util/NonCopyable.h">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/IApplication.cpp">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/CMakeLists.txt">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/IApplication.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Window.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Window.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ElementBuffer.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ElementBuffer.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Graphics.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Layout.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Layout.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Renderer.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Renderer.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ShaderProgram.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ShaderProgram.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexArray.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexArray.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexBuffer.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexBuffer.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/GLDebug.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/GLDebug.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ICounted.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ICounted.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/INonCopyable.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Log.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Log.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Util.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Util.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/vendor/RedirectOutputTo.cmake">
+		<Unit filename="/home/douidik/dev/octopus/vendor/RedirectOutputTo.cmake">
 			<Option virtualFolder="CMake Files\vendor\"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/octopus/CMakeLists.txt">
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\octopus\"/>
 		</Unit>
-		<Unit filename="/home/douidik/CLionProjects/octopus/src/application/CMakeLists.txt">
+		<Unit filename="/home/douidik/dev/octopus/src/application/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\src\application\"/>
 		</Unit>
 	</Project>

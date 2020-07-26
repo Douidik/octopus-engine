@@ -25,7 +25,7 @@ namespace Octo {
     }
 
     bool Dependencies::InitGLEW() {
-        //check if a context is available for rendering
+        // Check if a context is available for rendering
         if(!Window::IsInstancied()) {
             throw std::runtime_error("[GLEW] No context available for rendering");
             return false;

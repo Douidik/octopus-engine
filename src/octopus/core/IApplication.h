@@ -4,6 +4,7 @@
 #include "util/INonCopyable.h"
 #include "util/ICounted.h"
 #include "Window.h"
+#include "graphics/Renderer.h"
 
 namespace Octo {
 
@@ -20,6 +21,7 @@ namespace Octo {
 
     protected:
         Window m_window;
+        Renderer m_renderer;
 
     private:
         const std::string m_sName;
