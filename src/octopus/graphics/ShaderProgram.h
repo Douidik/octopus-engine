@@ -7,7 +7,7 @@ namespace Octo {
     using ShadersSources = std::pair<std::string, std::string>;
     using Cache = std::unordered_map<std::string, GLint>;
 
-    class ShaderProgram {
+    class OCTO_API ShaderProgram {
     public:
         ShaderProgram(ShadersPaths paths, const std::string& name = "default");
         ~ShaderProgram();

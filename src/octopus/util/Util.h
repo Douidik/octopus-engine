@@ -3,7 +3,7 @@
 
 namespace Octo {
 
-    static GLsizei OCTO_API SizeOfGLType(GLenum type) {
+    static GLsizei SizeOfGLType(GLenum type) {
         switch(type) {
             case GL_BYTE:           return sizeof(char);
             case GL_UNSIGNED_BYTE:  return sizeof(unsigned char);

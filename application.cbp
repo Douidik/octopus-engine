@@ -11,30 +11,30 @@
 				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/douidik/dev/octopus"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="octopus">
@@ -49,12 +49,19 @@
 					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="octopus/fast">
@@ -69,12 +76,19 @@
 					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 octopus/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/octopus/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="application">
@@ -88,12 +102,19 @@
 					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="application/fast">
@@ -107,12 +128,19 @@
 					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 application/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/douidik/dev/octopus/src/application/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -162,6 +190,9 @@
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/core/Window.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/events/Events.h">
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ElementBuffer.cpp">

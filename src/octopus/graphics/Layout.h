@@ -1,7 +1,7 @@
 #ifndef OCTOPUS_LAYOUT_H
 #define OCTOPUS_LAYOUT_H
 
-struct Attribute {
+struct OCTO_API Attribute {
     std::string name;
     GLint index;
     // Number of components in the attribute, e.g: 3D space point = 3 components
@@ -15,7 +15,7 @@ struct Attribute {
     {}
 };
 
-struct Layout {
+struct OCTO_API Layout {
     Layout(std::initializer_list<Attribute> _attributes)
             : stride(0), attributes(_attributes)
     {}

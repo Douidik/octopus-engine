@@ -5,7 +5,7 @@
 
 namespace Octo {
 
-    class VertexArray {
+    class OCTO_API VertexArray {
     public:
         explicit VertexArray();
         ~VertexArray();

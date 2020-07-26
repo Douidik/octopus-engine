@@ -13,13 +13,13 @@ namespace Octo {
     class Attribute;
 
     /* Renderer parameters enum bitfield */
-    enum class RendererParameters : Bitfield {
+    enum class OCTO_API RendererParameters : Bitfield {
         DepthTest = BIT(1),
         CullFace = BIT(2),
         BlendTexture = BIT(3)
     };
 
-    enum RendererMode {
+    enum OCTO_API RendererMode {
         Points = GL_POINTS,
         LineStrip = GL_LINE_STRIP,
         LineLoop = GL_LINE_LOOP,
@@ -34,7 +34,7 @@ namespace Octo {
         Patches = GL_PATCHES
     };
 
-    class Renderer : ICounted, INonCopyable {
+    class OCTO_API Renderer : ICounted, INonCopyable {
     public:
         Renderer(Bitfield rendererParameters = ((Bitfield)RendererParameters::DepthTest | (Bitfield)RendererParameters::CullFace));
         ~Renderer();
