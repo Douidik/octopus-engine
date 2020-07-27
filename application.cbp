@@ -293,6 +293,12 @@
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexBuffer.h">
 			<Option target="octopus"/>
 		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/maths/Transform.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/maths/Transform.h">
+			<Option target="octopus"/>
+		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ConfigurationFile.cpp">
 			<Option target="octopus"/>
 		</Unit>
