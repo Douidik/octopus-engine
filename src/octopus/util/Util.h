@@ -22,6 +22,8 @@ namespace Octo {
         }
     }
 
+    // Returns the content of a file in a string
+    std::optional<std::string> GetStringFromFile(const std::string& filepath, std::ios::openmode mode = std::ios::in);
 }
 
 #endif //OCTOPUS_UTIL_H

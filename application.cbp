@@ -283,25 +283,31 @@
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexBuffer.h">
 			<Option target="octopus"/>
 		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ConfigurationFile.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ConfigurationFile.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Counted.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Counted.h">
+			<Option target="octopus"/>
+		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/GLDebug.cpp">
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/GLDebug.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ICounted.cpp">
-			<Option target="octopus"/>
-		</Unit>
-		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/ICounted.h">
-			<Option target="octopus"/>
-		</Unit>
-		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/INonCopyable.h">
-			<Option target="octopus"/>
-		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Log.cpp">
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Log.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/NonCopyable.h">
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Util.cpp">

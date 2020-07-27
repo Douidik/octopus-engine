@@ -1,26 +1,30 @@
 #include "OctopusPCH.h"
 #include "ShaderProgram.h"
-
+#include "util/Util.h"
 
 namespace Octo {
 
     ShaderProgram::ShaderProgram(ShadersPaths paths, const std::string &name)
-        : m_sName(parseName(name, paths))
+        : m_name(parseName(name, paths))
     {
-        ShadersSources sources = readShaders(paths);
-        m_uRendererID = createProgram(sources);
+        OptShadersSources sources = readShaders(paths);
+        if(!sources.first.has_value() || !sources.second.has_value()) { // Sources are not valid ?
+            return;
+        }
+
+        m_uRendererID = createProgram({sources.first.value(), sources.second.value()});
     }
 
     ShaderProgram::~ShaderProgram() {
         GLCall(glDeleteProgram(m_uRendererID));
     }
 
-    const std::string ShaderProgram::parseName(const std::string &_sName, ShadersPaths &paths) {
+    const std::string ShaderProgram::parseName(const std::string &_name, ShadersPaths &paths) {
         /*
          * name is not defined, the name will be defaulted by the path of the shader without the extension
          * e.g, shaders/ < common > .glsl
          */
-        if(_sName == "default") {
+        if(_name == "default") {
             // We take the vertex path to create the name
             std::string vertexPath = paths.first;
 
@@ -38,35 +42,21 @@ namespace Octo {
             size_t lastDot = vertexPath.find_last_of('.');
             size_t length = (lastDot - lastSlash) - 1;
 
-            std::string sName = vertexPath.substr(lastSlash + 1, length);
+            std::string name = vertexPath.substr(lastSlash + 1, length);
             // Capitalizing the name
-            sName[0] = std::toupper(sName[0]);
+            name[0] = std::toupper(name[0]);
 
-            return sName;
+            return name;
         } else { // Name is defined
-            return _sName;
+            return _name;
         }
     }
 
-    ShadersSources ShaderProgram::readShaders(ShadersSources sources) {
-        std::ifstream vertexStream(sources.first), fragmentStream(sources.second);
+    OptShadersSources ShaderProgram::readShaders(ShadersPaths paths) {
+        auto vertexSource   = GetStringFromFile(paths.first);
+        auto fragmentSource = GetStringFromFile(paths.second);
 
-
-        if(vertexStream && fragmentStream) {  // Both sources are valid, we read the shaders
-            std::stringstream vertexSstr, fragmentSstr;
-
-            // streaming the shaders sources to string streams
-            vertexSstr   << vertexStream.rdbuf();
-            fragmentSstr << fragmentStream.rdbuf();
-
-            // returning string streams converted to string
-            return { vertexSstr.str(), fragmentSstr.str() };
-        }
-        else { // Failed to read shaders
-            //e.g, Common program, failed to read shader(s) from: common.vs common.fs
-            throw std::runtime_error(m_sName + "Program, failed to read shader(s) from: "s + (!vertexStream ? sources.first + " "s : ""s) + (!fragmentStream ? sources.second : ""s));
-            return { "", "" };
-        }
+        return { vertexSource, fragmentSource };
     }
 
     GLuint ShaderProgram::createProgram(ShadersSources sources) {
@@ -90,12 +80,11 @@ namespace Octo {
             GLCall(glGetProgramInfoLog(uProgramID, 2048, nullptr, glLog[0]));
 
             // Converting the log for our string format
-            std::string sLog(*glLog);
+            std::string log(*glLog);
             // Appending the name of the program
-            sLog = m_sName + ": \n" + sLog;
-            OCTO_LOG_ERROR(sLog);
+            log = m_name + ": \n" + log;
+            OCTO_LOG_ERROR(log);
         }
-
         /* Detaching and freeing shaders */
 
         GLCall(glDetachShader(uProgramID, uVertexID));
@@ -107,84 +96,84 @@ namespace Octo {
         return uProgramID;
     }
 
-    GLuint ShaderProgram::createShader(const std::string sSource, GLenum type) {
+    GLuint ShaderProgram::createShader(const std::string source, GLenum type) {
         GLuint uShaderID = glCreateShader(type);
         // Converting source to OpenGL format
-        const GLchar* glSource = sSource.data();
+        const GLchar* glSource = source.data();
         GLCall(glShaderSource(uShaderID, 1, &glSource, nullptr));
         GLCall(glCompileShader(uShaderID));
 
         return uShaderID;
     }
 
-    GLint ShaderProgram::attributeLocation(const std::string &sName) {
-        if(m_attributeCache.find(sName) != m_attributeCache.end()) {
-            return m_attributeCache[sName];
+    GLint ShaderProgram::attributeLocation(const std::string &name) {
+        if(m_attributeCache.find(name) != m_attributeCache.end()) {
+            return m_attributeCache[name];
         }
 
-        GLint location = glGetAttribLocation(m_uRendererID, sName.c_str());
+        GLint location = glGetAttribLocation(m_uRendererID, name.c_str());
 
         if(location == -1) { // Attribute location was not found
-            OCTO_LOG_WARN("Attribute \""s + sName + "\" was not found in program \""s + m_sName + "\""s);
+            OCTO_LOG_WARN("Attribute \""s + name + "\" was not found in program \""s + m_name + "\""s);
         }
 
-        m_attributeCache[sName] = location;
+        m_attributeCache[name] = location;
         return location;
     }
 
-    GLint ShaderProgram::uniformLocation(const std::string &sName) {
-        if(m_uniformCache.find(sName) != m_uniformCache.end()) {
-            return m_uniformCache[sName];
+    GLint ShaderProgram::uniformLocation(const std::string &name) {
+        if(m_uniformCache.find(name) != m_uniformCache.end()) {
+            return m_uniformCache[name];
         }
 
-        GLint location = glGetUniformLocation(m_uRendererID, sName.c_str());
+        GLint location = glGetUniformLocation(m_uRendererID, name.c_str());
 
         if(location == -1) { // Uniform location was not found
-            OCTO_LOG_WARN("Uniform \""s + sName + "\" was not found in program \""s + m_sName + "\""s);
+            OCTO_LOG_WARN("Uniform \""s + name + "\" was not found in program \""s + m_name + "\""s);
         }
 
-        m_uniformCache[sName] = location;
+        m_uniformCache[name] = location;
         return location;
     }
 
-    void ShaderProgram::setFloat(const std::string &sName, float value) {
+    void ShaderProgram::setFloat(const std::string &name, float value) {
         this->bind();
-        GLCall(glUniform1f(uniformLocation(sName), value));
+        GLCall(glUniform1f(uniformLocation(name), value));
     }
 
-    void ShaderProgram::setInt(const std::string &sName, int value) {
+    void ShaderProgram::setInt(const std::string &name, int value) {
         this->bind();
-        GLCall(glUniform1i(uniformLocation(sName), value));
+        GLCall(glUniform1i(uniformLocation(name), value));
     }
 
-    void ShaderProgram::setUnsignedInt(const std::string &sName, unsigned int value) {
+    void ShaderProgram::setUnsignedInt(const std::string &name, unsigned int value) {
         this->bind();
-        GLCall(glUniform1ui(uniformLocation(sName), value));
+        GLCall(glUniform1ui(uniformLocation(name), value));
     }
 
-    void ShaderProgram::setVector2(const std::string &sName, glm::vec2 value) {
+    void ShaderProgram::setVector2(const std::string &name, glm::vec2 value) {
         this->bind();
-        GLCall(glUniform2f(uniformLocation(sName), value.x, value.y));
+        GLCall(glUniform2f(uniformLocation(name), value.x, value.y));
     }
 
-    void ShaderProgram::setVector3(const std::string &sName, glm::vec3 value) {
+    void ShaderProgram::setVector3(const std::string &name, glm::vec3 value) {
         this->bind();
-        GLCall(glUniform3f(uniformLocation(sName), value.x, value.y, value.z));
+        GLCall(glUniform3f(uniformLocation(name), value.x, value.y, value.z));
     }
 
-    void ShaderProgram::setVector4(const std::string &sName, glm::vec4 value) {
+    void ShaderProgram::setVector4(const std::string &name, glm::vec4 value) {
         this->bind();
-        GLCall(glUniform4f(uniformLocation(sName), value.x, value.y, value.z, value.w));
+        GLCall(glUniform4f(uniformLocation(name), value.x, value.y, value.z, value.w));
     }
 
-    void ShaderProgram::setMatrix3(const std::string &sName, glm::mat3 value, bool bTranspose) {
+    void ShaderProgram::setMatrix3(const std::string &name, glm::mat3 value, bool bTranspose) {
         this->bind();
-        GLCall(glUniformMatrix3fv(uniformLocation(sName), 1, bTranspose, glm::value_ptr(value)));
+        GLCall(glUniformMatrix3fv(uniformLocation(name), 1, bTranspose, glm::value_ptr(value)));
     }
 
-    void ShaderProgram::setMatrix4(const std::string &sName, glm::mat4 value, bool bTranspose) {
+    void ShaderProgram::setMatrix4(const std::string &name, glm::mat4 value, bool bTranspose) {
         this->bind();
-        GLCall(glUniformMatrix4fv(uniformLocation(sName), 1, bTranspose, glm::value_ptr(value)));
+        GLCall(glUniformMatrix4fv(uniformLocation(name), 1, bTranspose, glm::value_ptr(value)));
     }
 
 

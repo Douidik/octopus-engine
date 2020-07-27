@@ -1,8 +1,8 @@
 #ifndef OCTOPUS_RENDERER_H
 #define OCTOPUS_RENDERER_H
 
-#include "util/ICounted.h"
-#include "util/INonCopyable.h"
+#include "util/Counted.h"
+#include "util/NonCopyable.h"
 
 namespace Octo {
 
@@ -34,7 +34,7 @@ namespace Octo {
         Patches = GL_PATCHES
     };
 
-    class OCTO_API Renderer : ICounted, INonCopyable {
+    class OCTO_API Renderer : Counted, NonCopyable {
     public:
         Renderer(Bitfield rendererParameters = ((Bitfield)RendererParameters::DepthTest | (Bitfield)RendererParameters::CullFace));
         ~Renderer();

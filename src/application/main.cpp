@@ -9,8 +9,8 @@
 
 class Application : public OCTO_API Octo::IApplication {
 public:
-    Application(const std::string& sName)
-        : Octo::IApplication(sName, 1280, 720)
+    Application(const std::string& name)
+        : Octo::IApplication(name, 1280, 720)
     { }
 
     void run() override {
@@ -47,10 +47,6 @@ public:
                         bShouldRun = false;
                     default: break;
                 }
-            }
-
-            if(m_eventQueue.input().isButtonPressed(OCTO_BUTTON_LEFT)) {
-                APP_LOG_WARN(m_eventQueue.input().getButton(OCTO_BUTTON_LEFT)->info());
             }
 
             if(m_eventQueue.input().isKeyPressed(OCTO_KEY_ESCAPE)) {

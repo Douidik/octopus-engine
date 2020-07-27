@@ -1,8 +1,8 @@
 #ifndef OCTOPUS_IAPPLICATION_H
 #define OCTOPUS_IAPPLICATION_H
 
-#include "util/INonCopyable.h"
-#include "util/ICounted.h"
+#include "util/NonCopyable.h"
+#include "util/Counted.h"
 #include "Window.h"
 #include "graphics/Renderer.h"
 #include "events/Events.h"
@@ -10,9 +10,9 @@
 
 namespace Octo {
 
-    class OCTO_API IApplication : private INonCopyable, private ICounted {
+    class OCTO_API IApplication : private NonCopyable, private Counted {
     public:
-        IApplication(const std::string &sName, int windowWidth, int windowHeight);
+        IApplication(const std::string &name, int windowWidth, int windowHeight);
         ~IApplication();
 
         // Implement this method to run the main loop
@@ -27,7 +27,7 @@ namespace Octo {
         EventQueue m_eventQueue;
 
     private:
-        const std::string m_sName;
+        const std::string m_name;
     };
 
 }

@@ -18,8 +18,11 @@
 #include <fstream>
 #include <sstream>
 #include <queue>
+#include <filesystem>
 
 #include <magic_enum.hpp>
+
+#include <yaml-cpp/yaml.h>
 
 #include "util/GLDebug.h"
 #include "util/Log.h"

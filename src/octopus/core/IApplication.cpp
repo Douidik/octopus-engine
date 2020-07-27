@@ -4,8 +4,8 @@
 
 namespace Octo {
 
-    IApplication::IApplication(const std::string &sName, int windowWidth, int windowHeight)
-        : m_sName(sName), m_window({sName, windowWidth, windowHeight}), m_eventQueue(&m_window)
+    IApplication::IApplication(const std::string &name, int windowWidth, int windowHeight)
+        : m_name(name), m_window({m_name, windowWidth, windowHeight}), m_eventQueue(&m_window)
     {
         if(!Core::IsActive()){
             Core::Initialize();

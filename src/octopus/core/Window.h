@@ -1,7 +1,7 @@
 #ifndef OCTOPUS_WINDOW_H
 #define OCTOPUS_WINDOW_H
 
-#include "util/ICounted.h"
+#include "util/Counted.h"
 
 namespace Octo {
 
@@ -19,7 +19,7 @@ namespace Octo {
         {}
     };
 
-    class OCTO_API Window : public ICounted {
+    class OCTO_API Window : public Counted {
     public:
         Window(const WindowProperties &properties);
         ~Window();
