@@ -30,9 +30,9 @@ namespace Octo {
         GLsizeiptr offset = 0;
 
         for (Attribute &attribute : layout.attributes) {
-            attribute.index = program.attributeLocation(attribute.name);
+            attribute.iIndex = program.attributeLocation(attribute.name);
             // Size in bytes of the attribute
-            GLsizei size = SizeOfGLType(type) * attribute.components;
+            GLsizei size = SizeOfGLType(type) * attribute.iComponents;
             attribute.offset = offset;
             offset += size;
         }
@@ -49,22 +49,22 @@ namespace Octo {
                 type == GL_UNSIGNED_SHORT ||
                 type == GL_INT ||
                 type == GL_UNSIGNED_INT) {
-                glVertexAttribIPointer(attribute.index,
-                                       attribute.components,
+                glVertexAttribIPointer(attribute.iIndex,
+                                       attribute.iComponents,
                                        type,
                                        layout.stride,
                                        (const void *) attribute.offset);
             } else if (type == GL_DOUBLE) {
-                glVertexAttribLPointer(attribute.index,
-                                       attribute.components,
+                glVertexAttribLPointer(attribute.iIndex,
+                                       attribute.iComponents,
                                        type,
                                        layout.stride,
                                        (const void *) attribute.offset);
             } else {
-                glVertexAttribPointer(attribute.index,
-                                      attribute.components,
+                glVertexAttribPointer(attribute.iIndex,
+                                      attribute.iComponents,
                                       type,
-                                      attribute.normalized,
+                                      attribute.bNormalized,
                                       layout.stride,
                                       (const void *) attribute.offset);
             }

@@ -9,10 +9,8 @@ std::optional<std::string> Octo::GetStringFromFile(const std::string &filepath, 
             sstr << stream.rdbuf();
             return sstr.str();
         }
-
-        return std::nullopt;
     }
 
-    OCTO_LOG_ERROR("File "s + filepath + " is not found");
+    OCTO_LOG_ERROR("Failed to read file from: "s + filepath);
     return std::nullopt;
 }

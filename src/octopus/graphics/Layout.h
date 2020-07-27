@@ -3,15 +3,15 @@
 
 struct OCTO_API Attribute {
     std::string name;
-    GLint index;
+    GLint iIndex;
     // Number of components in the attribute, e.g: 3D space point = 3 components
-    GLint components;
-    GLboolean normalized;
+    GLint iComponents;
+    GLboolean bNormalized;
     //Size in bytes between the
     GLsizeiptr offset;
 
-    Attribute(const std::string _name, GLint _components, GLboolean _normalized = false)
-            : name(_name), index(-1), components(_components), normalized(_normalized), offset(0)
+    Attribute(const std::string _name, GLint _iComponents, GLboolean _bNormalized = false)
+            : name(_name), iIndex(-1), iComponents(_iComponents), bNormalized(_bNormalized), offset(0)
     {}
 };
 
@@ -22,13 +22,13 @@ struct OCTO_API Layout {
 
     inline void enable() const {
         for(const Attribute& attribute : attributes) {
-            glEnableVertexAttribArray(attribute.index);
+            glEnableVertexAttribArray(attribute.iIndex);
         }
     }
 
     inline void disable() const {
         for(const Attribute& attribute : attributes) {
-            glDisableVertexAttribArray(attribute.index);
+            glDisableVertexAttribArray(attribute.iIndex);
         }
     }
 

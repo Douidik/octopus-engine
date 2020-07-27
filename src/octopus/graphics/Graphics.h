@@ -6,5 +6,6 @@
 #include "ShaderProgram.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
+#include "Texture.h"
 
 #endif //OCTOPUS_GRAPHICS_H

@@ -46,10 +46,11 @@
 				<Compiler>
 					<Add option="-DOCTO_BUILD_DLL"/>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
 					<Add directory="/home/douidik/dev/octopus/vendor/magic_enum/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/stb"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
@@ -74,10 +75,11 @@
 				<Compiler>
 					<Add option="-DOCTO_BUILD_DLL"/>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
 					<Add directory="/home/douidik/dev/octopus/vendor/magic_enum/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/stb"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
@@ -101,10 +103,11 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
 					<Add directory="/home/douidik/dev/octopus/vendor/magic_enum/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/stb"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
@@ -128,10 +131,11 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/../include/include"/>
-					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
 					<Add directory="/home/douidik/dev/octopus/src/octopus"/>
 					<Add directory="/home/douidik/dev/octopus/src/application"/>
 					<Add directory="/home/douidik/dev/octopus/vendor/magic_enum/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/spdlog/include"/>
+					<Add directory="/home/douidik/dev/octopus/vendor/stb"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/x86_64-pc-linux-gnu"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../include/c++/10.1.0/backward"/>
@@ -269,6 +273,12 @@
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/ShaderProgram.h">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Texture.cpp">
+			<Option target="octopus"/>
+		</Unit>
+		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/Texture.h">
 			<Option target="octopus"/>
 		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/graphics/VertexArray.cpp">

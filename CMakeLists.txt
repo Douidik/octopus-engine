@@ -23,7 +23,7 @@ include_directories(${ASSIMP_INCLUDE_DIRS})
 pkg_search_module(YAML REQUIRED yaml-cpp)
 include_directories(${YAML_INCLUDE_DIRS})
 
-include_directories(vendor/spdlog/include src/octopus src/application vendor/magic_enum/include/)
+include_directories(src/octopus src/application vendor/magic_enum/include/ vendor/spdlog/include vendor/stb/)
 
 add_definitions(-DOCTO_BUILD_DLL)
 add_subdirectory(src/octopus)

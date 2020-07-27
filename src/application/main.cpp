@@ -16,11 +16,11 @@ public:
     void run() override {
         using namespace Octo;
 
-        GLfloat vertices[] = {
-             -0.5f, -0.5f, 0.0f,
-              0.5f, -0.5f, 0.0f,
-              0.5f,  0.5f, 0.0f,
-             -0.5f,  0.5f, 0.0f,
+        GLfloat data[] = {
+             -0.5f, -0.5f, 0.0f,    0.0f, 1.0f,
+              0.5f, -0.5f, 0.0f,    1.0f, 1.0f,
+              0.5f,  0.5f, 0.0f,    1.0f, 0.0f,
+             -0.5f,  0.5f, 0.0f,    0.0f, 0.0f
         };
 
         GLuint indices[] = {
@@ -30,10 +30,11 @@ public:
 
         ShaderProgram program({"src/application/shaders/debug.vs", "src/application/shaders/debug.fs"});
         VertexArray vertexArray = VertexArray();
-        Layout layout = { { "a_position", 3 } };
-        VertexBuffer vertexBuffer(vertices, sizeof(vertices), GL_FLOAT, layout);
+        Layout layout = { { "a_position", 3 }, {"a_uv", 2} };
+        VertexBuffer vertexBuffer(data, sizeof(data), GL_FLOAT, layout);
         ElementBuffer elementBuffer(indices, sizeof(indices), GL_UNSIGNED_INT);
         vertexArray.addVertexBuffer(vertexBuffer, program);
+        Texture2D texture("assets/texture.png");
 
         std::shared_ptr<Event> pEvent;
 
@@ -53,6 +54,9 @@ public:
                 bShouldRun = false;
             }
 
+            texture.bind();
+            program.setInt("u_texture", 0);
+            vertexBuffer.bind();
             m_renderer.drawElements(elementBuffer, vertexArray, program);
 
             update();
