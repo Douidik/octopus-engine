@@ -17,6 +17,9 @@
 #include <stack>
 #include <fstream>
 #include <sstream>
+#include <queue>
+
+#include <magic_enum.hpp>
 
 #include "util/GLDebug.h"
 #include "util/Log.h"

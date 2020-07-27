@@ -26,7 +26,6 @@ namespace Octo {
     }
 
     void Log::Shutdown() {
-
         s_pOctoLogger.reset();
         s_pAppLogger.reset();
     }

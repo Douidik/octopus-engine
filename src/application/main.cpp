@@ -2,6 +2,11 @@
 #include "graphics/Graphics.h"
 #include <string>
 
+#include "events/WindowEvents.h"
+#include "events/FrameBufferEvents.h"
+#include "events/KeyboardEvents.h"
+#include "events/MouseEvents.h"
+
 class Application : public OCTO_API Octo::IApplication {
 public:
     Application(const std::string& sName)
@@ -30,16 +35,33 @@ public:
         ElementBuffer elementBuffer(indices, sizeof(indices), GL_UNSIGNED_INT);
         vertexArray.addVertexBuffer(vertexBuffer, program);
 
-        while(m_window.shouldRun()) {
+        std::shared_ptr<Event> pEvent;
+
+        bool bShouldRun = true;
+        while(bShouldRun) {
             m_renderer.clear();
+
+            while(m_eventQueue.query(pEvent)) {
+                switch (pEvent->type()) {
+                    case EventType::WindowClosed:
+                        bShouldRun = false;
+                    default: break;
+                }
+            }
+
+            if(m_eventQueue.input().isButtonPressed(OCTO_BUTTON_LEFT)) {
+                APP_LOG_WARN(m_eventQueue.input().getButton(OCTO_BUTTON_LEFT)->info());
+            }
+
+            if(m_eventQueue.input().isKeyPressed(OCTO_KEY_ESCAPE)) {
+                bShouldRun = false;
+            }
 
             m_renderer.drawElements(elementBuffer, vertexArray, program);
 
             update();
         }
     }
-
-    ~Application() = default;
 };
 
 int main() {

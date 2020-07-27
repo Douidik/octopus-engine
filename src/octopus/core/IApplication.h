@@ -5,6 +5,8 @@
 #include "util/ICounted.h"
 #include "Window.h"
 #include "graphics/Renderer.h"
+#include "events/Events.h"
+#include "events/EventQueue.h"
 
 namespace Octo {
 
@@ -22,6 +24,7 @@ namespace Octo {
     protected:
         Window m_window;
         Renderer m_renderer;
+        EventQueue m_eventQueue;
 
     private:
         const std::string m_sName;

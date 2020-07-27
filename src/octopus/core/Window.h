@@ -5,25 +5,23 @@
 
 namespace Octo {
 
+    //GLFW window user pointer, this struct is linked with the glfw native window
+    struct WindowProperties {
+        const std::string name;
+        int width, height;
+        int x, y;
+        //Pointer to the application event queue
+        class EventQueue* pEventQueue;
+
+        // Called in Application constructor
+        WindowProperties(const std::string &_name, int _width, int _height)
+                : name(_name), width(_width), height(_height)
+        {}
+    };
+
     class OCTO_API Window : public ICounted {
     public:
-        struct Properties {
-            const std::string name;
-            int width, height;
-
-            // Called in Application constructor
-            Properties(const std::string &_name, int _width, int _height)
-                : name(_name), width(_width), height(_height)
-            {}
-
-            // Pass in Application constructor
-            Properties(int _width, int _height)
-                : name("undefined"), width(_width), height(_height)
-            {}
-
-        };
-
-        Window(const Properties &properties);
+        Window(const WindowProperties &properties);
         ~Window();
 
         void update();
@@ -36,7 +34,11 @@ namespace Octo {
             glfwMakeContextCurrent(nullptr);
         }
 
-        inline Properties properties() const {
+        inline WindowProperties &properties() {
+            return m_properties;
+        }
+
+        inline WindowProperties properties() const {
             return m_properties;
         }
 
@@ -47,7 +49,7 @@ namespace Octo {
 
     private:
         GLFWwindow* m_pNativeWindow;
-        Properties m_properties;
+        WindowProperties m_properties;
     };
 
 }

@@ -20,7 +20,7 @@ include_directories(${GLM_INCLUDE_DIRS})
 pkg_search_module(ASSIMP REQUIRED assimp)
 include_directories(${ASSIMP_INCLUDE_DIRS})
 
-include_directories(vendor/spdlog/include src/octopus src/application)
+include_directories(vendor/spdlog/include src/octopus src/application vendor/magic_enum/include/)
 
 add_definitions(-DOCTO_BUILD_DLL)
 add_subdirectory(src/octopus)

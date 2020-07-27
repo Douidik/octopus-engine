@@ -1,10 +1,11 @@
 #include "OctopusPCH.h"
 #include "Window.h"
 #include "Dependencies.h"
+#include "events/Events.h"
 
 namespace Octo {
 
-    Window::Window(const Properties &properties)
+    Window::Window(const WindowProperties &properties)
         : m_properties(properties)
     {
         if(!Dependencies::IsGLFWActive()) {
@@ -17,6 +18,7 @@ namespace Octo {
             OCTO_LOG_ERROR("[GLFW] Failed to create the window");
             return;
         }
+        glfwSetWindowUserPointer(m_pNativeWindow, &m_properties);
 
         glfwMakeContextCurrent(m_pNativeWindow);
     }
