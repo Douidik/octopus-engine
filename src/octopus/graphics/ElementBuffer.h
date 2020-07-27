@@ -5,7 +5,9 @@ namespace Octo {
 
 class OCTO_API ElementBuffer {
 public:
-    ElementBuffer(const void *data, GLsizei size, GLenum type, GLenum usage = GL_STATIC_DRAW);
+    static Ref<ElementBuffer> Create(const void *data, GLsizei size, GLenum type, GLenum usage = GL_STATIC_DRAW);
+
+    ElementBuffer(const void *data, GLsizei size, GLenum type, GLenum usage);
     ~ElementBuffer();
 
     inline void bind() const {

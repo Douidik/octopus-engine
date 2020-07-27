@@ -1,7 +1,6 @@
 #ifndef OCTOPUS_CORE_H
 #define OCTOPUS_CORE_H
 
-using namespace std::string_literals;
 
 /* Defining Platform specific macros, only Windows and Linux are supported for now */
 #ifdef _WIN32
@@ -27,10 +26,20 @@ using namespace std::string_literals;
 
 #endif
 
-using Bitfield = uint64_t;
-#define BIT(x) 1 << x
+using namespace std::string_literals;
 
 namespace Octo {
+
+    using Bitfield = uint64_t;
+    #define BIT(x) 1 << x
+
+    template<typename T>
+    using Ref = std::shared_ptr<T>;
+
+    template<typename T, typename... Args>
+    constexpr Ref<T> CreateRef(Args&&... args) {
+        return std::make_shared<T>(std::forward<Args>(args)...);
+    }
 
     class OCTO_API Core {
     public:

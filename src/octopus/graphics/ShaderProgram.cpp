@@ -4,6 +4,11 @@
 
 namespace Octo {
 
+    Ref <ShaderProgram>
+    ShaderProgram::Create(const std::pair<std::string, std::string> &paths, const std::string &name) {
+        return CreateRef<ShaderProgram>(paths, name);
+    }
+
     ShaderProgram::ShaderProgram(ShadersPaths paths, const std::string &name)
         : m_name(parseName(name, paths))
     {
@@ -175,6 +180,5 @@ namespace Octo {
         this->bind();
         GLCall(glUniformMatrix4fv(uniformLocation(name), 1, bTranspose, glm::value_ptr(value)));
     }
-
 
 }

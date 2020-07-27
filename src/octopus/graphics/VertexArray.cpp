@@ -1,10 +1,16 @@
 #include "OctopusPCH.h"
 #include "VertexArray.h"
+
+#include "ElementBuffer.h"
 #include "VertexBuffer.h"
 #include "ShaderProgram.h"
 #include "util/Util.h"
 
 namespace Octo {
+
+    Ref <VertexArray> VertexArray::Create() {
+        return CreateRef<VertexArray>();
+    }
 
     VertexArray::VertexArray() {
         glCreateVertexArrays(1, &m_uRendererID);
@@ -14,13 +20,13 @@ namespace Octo {
         glDeleteVertexArrays(1, &m_uRendererID);
     }
 
-    void VertexArray::addVertexBuffer(class VertexBuffer &vertexBuffer, class ShaderProgram &program) {
+    void VertexArray::addVertexBuffer(Ref<VertexBuffer> &vertexBuffer, Ref<ShaderProgram> &program) {
         this->bind();
-        vertexBuffer.bind();
-        program.bind();
+        vertexBuffer->bind();
+        program->bind();
 
-        Layout& layout = vertexBuffer.layout();
-        GLenum type = vertexBuffer.type();
+        Layout& layout = vertexBuffer->layout();
+        GLenum type = vertexBuffer->type();
 
         /*
          * Querying to the program the index of each attributes and
@@ -30,7 +36,7 @@ namespace Octo {
         GLsizeiptr offset = 0;
 
         for (Attribute &attribute : layout.attributes) {
-            attribute.iIndex = program.attributeLocation(attribute.name);
+            attribute.iIndex = program->attributeLocation(attribute.name);
             // Size in bytes of the attribute
             GLsizei size = SizeOfGLType(type) * attribute.iComponents;
             attribute.offset = offset;
@@ -49,26 +55,50 @@ namespace Octo {
                 type == GL_UNSIGNED_SHORT ||
                 type == GL_INT ||
                 type == GL_UNSIGNED_INT) {
-                glVertexAttribIPointer(attribute.iIndex,
-                                       attribute.iComponents,
-                                       type,
-                                       layout.stride,
-                                       (const void *) attribute.offset);
+                GLCall(glVertexAttribIPointer(attribute.iIndex,
+                                              attribute.iComponents,
+                                              type,
+                                              layout.stride,
+                                              (const void *) attribute.offset));
             } else if (type == GL_DOUBLE) {
-                glVertexAttribLPointer(attribute.iIndex,
-                                       attribute.iComponents,
-                                       type,
-                                       layout.stride,
-                                       (const void *) attribute.offset);
+                GLCall(glVertexAttribLPointer(attribute.iIndex,
+                                              attribute.iComponents,
+                                              type,
+                                              layout.stride,
+                                              (const void *) attribute.offset));
             } else {
-                glVertexAttribPointer(attribute.iIndex,
-                                      attribute.iComponents,
-                                      type,
-                                      attribute.bNormalized,
-                                      layout.stride,
-                                      (const void *) attribute.offset);
+                GLCall(glVertexAttribPointer(attribute.iIndex,
+                                             attribute.iComponents,
+                                             type,
+                                             attribute.bNormalized,
+                                             layout.stride,
+                                             (const void *) attribute.offset));
             }
         }
+
+        m_vertexBuffers.push_back(vertexBuffer);
+    }
+
+    void VertexArray::addElementBuffer(Ref<ElementBuffer> &elementBuffer) {
+        this->bind();
+        elementBuffer->bind();
+        m_elementBuffer = elementBuffer;
+    }
+
+    Ref<ElementBuffer> VertexArray::elementBuffer() const {
+        if(!m_elementBuffer) {
+            throw std::runtime_error("Vertex Array has no element buffer");
+        }
+
+        return m_elementBuffer;
+    }
+
+    std::vector<Ref<VertexBuffer>> VertexArray::vertexBuffers() const {
+        if(m_vertexBuffers.empty()) {
+            throw std::runtime_error("Vertex Array has no vertex buffers");
+        }
+
+        return m_vertexBuffers;
     }
 
 }

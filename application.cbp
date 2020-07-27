@@ -323,9 +323,6 @@
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Log.h">
 			<Option target="octopus"/>
 		</Unit>
-		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/NonCopyable.h">
-			<Option target="octopus"/>
-		</Unit>
 		<Unit filename="/home/douidik/dev/octopus/src/octopus/util/Util.cpp">
 			<Option target="octopus"/>
 		</Unit>

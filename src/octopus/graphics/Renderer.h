@@ -2,7 +2,7 @@
 #define OCTOPUS_RENDERER_H
 
 #include "util/Counted.h"
-#include "util/NonCopyable.h"
+#include "maths/Transform.h"
 
 namespace Octo {
 
@@ -34,15 +34,14 @@ namespace Octo {
         Patches = GL_PATCHES
     };
 
-    class OCTO_API Renderer : Counted, NonCopyable {
+    class OCTO_API Renderer : Counted {
     public:
         Renderer(Bitfield rendererParameters = ((Bitfield)RendererParameters::DepthTest | (Bitfield)RendererParameters::CullFace));
         ~Renderer();
 
         void clear() const;
-        /* Low-level drawing methods */
-        void drawArrays(VertexBuffer& vertexBuffer, VertexArray& vertexArray, ShaderProgram& program, GLuint vertexCount, RendererMode mode = RendererMode::Triangles);
-        void drawElements(ElementBuffer& elementBuffer, VertexArray& vertexArray, ShaderProgram& program, RendererMode mode = RendererMode::Triangles);
+
+        void submit(Ref<VertexArray>& vertexArray, Ref<ShaderProgram>& program, Transform transform = glm::mat4(1.0f), RendererMode mode = RendererMode::Triangles) const;
 
     private:
         // which bits should be cleared

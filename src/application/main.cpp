@@ -28,15 +28,16 @@ public:
               2, 3, 0
         };
 
-        ShaderProgram program({"src/application/shaders/debug.vs", "src/application/shaders/debug.fs"});
-        VertexArray vertexArray = VertexArray();
+        Ref<ShaderProgram> program = ShaderProgram::Create({"src/application/shaders/debug.vs", "src/application/shaders/debug.fs"});
+        Ref<VertexArray> vertexArray = VertexArray::Create();
         Layout layout = { { "a_position", 3 }, {"a_uv", 2} };
-        VertexBuffer vertexBuffer(data, sizeof(data), GL_FLOAT, layout);
-        ElementBuffer elementBuffer(indices, sizeof(indices), GL_UNSIGNED_INT);
-        vertexArray.addVertexBuffer(vertexBuffer, program);
-        Texture2D texture("assets/texture.png");
+        Ref<VertexBuffer>vertexBuffer = VertexBuffer::Create(data, sizeof(data), GL_FLOAT, layout);
+        Ref<ElementBuffer> elementBuffer = ElementBuffer::Create(indices, sizeof(indices), GL_UNSIGNED_INT);
+        vertexArray->addVertexBuffer(vertexBuffer, program);
+        vertexArray->addElementBuffer(elementBuffer);
+        Ref<Texture2D> texture = Texture2D::Create("assets/texture.png");
 
-        std::shared_ptr<Event> pEvent;
+        Ref<Event> pEvent;
 
         bool bShouldRun = true;
         while(bShouldRun) {
@@ -54,10 +55,9 @@ public:
                 bShouldRun = false;
             }
 
-            texture.bind();
-            program.setInt("u_texture", 0);
-            vertexBuffer.bind();
-            m_renderer.drawElements(elementBuffer, vertexArray, program);
+            texture->bind();
+            program->setInt("u_texture", 0);
+            m_renderer.submit(vertexArray, program);
 
             update();
         }

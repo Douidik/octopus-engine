@@ -7,7 +7,9 @@ namespace Octo {
 
     class OCTO_API VertexBuffer {
     public:
-        VertexBuffer(const void *data, GLsizei size, GLenum type, Layout layout, GLenum usage = GL_STATIC_DRAW);
+        static Ref<VertexBuffer> Create(const void *data, GLsizei size, GLenum type, Layout layout, GLenum usage = GL_STATIC_DRAW);
+
+        VertexBuffer(const void *data, GLsizei size, GLenum type, Layout layout, GLenum usage);
         ~VertexBuffer();
 
         inline void bind() const {

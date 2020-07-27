@@ -4,6 +4,10 @@
 
 namespace Octo {
 
+    Ref<VertexBuffer> VertexBuffer::Create(const void *data, GLsizei size, GLenum type, Layout layout, GLenum usage) {
+        return CreateRef<VertexBuffer>(data, size, type, layout, usage);
+    }
+
     VertexBuffer::VertexBuffer(const void *data, GLsizei size, GLenum type, Layout layout, GLenum usage)
         : m_size(size), m_type(type), m_layout(layout)
     {

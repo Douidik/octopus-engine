@@ -10,7 +10,9 @@ namespace Octo {
 
     class OCTO_API ShaderProgram {
     public:
-        ShaderProgram(ShadersPaths paths, const std::string& name = "default");
+        static Ref<ShaderProgram>Create(ShadersPaths paths, const std::string& name = "default");
+
+        ShaderProgram(ShadersPaths paths, const std::string& name);
         ~ShaderProgram();
 
         inline void bind() const {

@@ -5,12 +5,19 @@
 
 namespace Octo {
 
+    class ElementBuffer;
+    class VertexBuffer;
+    class ShaderProgram;
+
     class OCTO_API VertexArray {
     public:
-        explicit VertexArray();
-        ~VertexArray();
+        static Ref<VertexArray> Create();
+;
+        void addVertexBuffer(Ref<VertexBuffer> &vertexBuffer, Ref<ShaderProgram> &program);
+        void addElementBuffer(Ref<ElementBuffer> &elementBuffer);
 
-        void addVertexBuffer(class VertexBuffer &vertexBuffer, class ShaderProgram &program);
+        VertexArray();
+        ~VertexArray();
 
         inline void bind() const {
             glBindVertexArray(m_uRendererID);
@@ -20,8 +27,13 @@ namespace Octo {
             glBindVertexArray(0);
         }
 
+        Ref<ElementBuffer> elementBuffer() const;
+        std::vector<Ref<VertexBuffer>> vertexBuffers() const;
+
     private:
         GLuint m_uRendererID;
+        Ref<ElementBuffer> m_elementBuffer;
+        std::vector<Ref<VertexBuffer>> m_vertexBuffers;
 
     };
 

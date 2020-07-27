@@ -1,7 +1,6 @@
 #ifndef OCTOPUS_IAPPLICATION_H
 #define OCTOPUS_IAPPLICATION_H
 
-#include "util/NonCopyable.h"
 #include "util/Counted.h"
 #include "Window.h"
 #include "graphics/Renderer.h"
@@ -10,7 +9,7 @@
 
 namespace Octo {
 
-    class OCTO_API IApplication : private NonCopyable, private Counted {
+    class OCTO_API IApplication : private Counted {
     public:
         IApplication(const std::string &name, int windowWidth, int windowHeight);
         ~IApplication();

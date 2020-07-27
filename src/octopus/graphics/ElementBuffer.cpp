@@ -4,6 +4,10 @@
 
 namespace Octo {
 
+    Ref<ElementBuffer> ElementBuffer::Create(const void *data, GLsizei size, GLenum type, GLenum usage) {
+        return CreateRef<ElementBuffer>(data, size, type, usage);
+    }
+
     ElementBuffer::ElementBuffer(const void *data, GLsizei size, GLenum type, GLenum usage)
         : m_size(size), m_type(type), m_count( size / SizeOfGLType(type) )
     {

@@ -6,6 +6,7 @@
 #include "ElementBuffer.h"
 #include "VertexArray.h"
 #include "ShaderProgram.h"
+#include "graphics/Texture.h"
 
 namespace Octo {
 
@@ -38,24 +39,21 @@ namespace Octo {
         }
     }
 
-    void Renderer::drawArrays(VertexBuffer &vertexBuffer, VertexArray &vertexArray, ShaderProgram &program, GLuint vertexCount, RendererMode mode) {
-        vertexArray.bind();
-        vertexBuffer.bind();
-        program.bind();
-
-        GLCall(glDrawArrays((GLenum)mode, 0, vertexCount));
-    }
-
     void Renderer::clear() const {
         glClear(m_clearBitfield);
     }
 
-    void Renderer::drawElements(ElementBuffer &elementBuffer, VertexArray &vertexArray, ShaderProgram &program, RendererMode mode) {
-        vertexArray.bind();
-        elementBuffer.bind();
-        program.bind();
+    void Renderer::submit(Ref<VertexArray> &vertexArray, Ref<ShaderProgram> &program, Transform transform, RendererMode mode) const {
+        vertexArray->bind();
+        Ref<ElementBuffer> elementBuffer = vertexArray->elementBuffer();
+        elementBuffer->bind();
+        /* Binding each vertex buffers */
+        for(Ref<VertexBuffer> vertexBuffer : vertexArray->vertexBuffers()) {
+            vertexBuffer->bind();
+        }
 
-        GLCall(glDrawElements((GLenum)mode, elementBuffer.count(), elementBuffer.type(), nullptr));
+        GLCall(glDrawElements((GLenum)mode, elementBuffer->count(), elementBuffer->type(), nullptr));
+        Texture2D::UnBind();
     }
 
 }

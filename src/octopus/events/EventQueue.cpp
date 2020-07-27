@@ -22,7 +22,7 @@ namespace Octo {
 
         glfwSetWindowPosCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, int x, int y) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<WindowMovedEvent>(x, y);
+            auto event = CreateRef<WindowMovedEvent>(x, y);
             pEventQueue->m_queue.push(std::static_pointer_cast<Event>(event));
             p_windowProperties->x = x;
             p_windowProperties->y = y;
@@ -30,7 +30,7 @@ namespace Octo {
 
         glfwSetWindowSizeCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, int width, int height) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<WindowResizedEvent>(width, height);
+            auto event = CreateRef<WindowResizedEvent>(width, height);
             pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
             p_windowProperties->width = width;
             p_windowProperties->height = height;
@@ -38,24 +38,24 @@ namespace Octo {
 
         glfwSetWindowCloseCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<WindowClosedEvent>();
+            auto event = CreateRef<WindowClosedEvent>();
             pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
         });
 
         glfwSetWindowFocusCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, int focused) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
             if(focused == GLFW_TRUE) {
-                auto event = std::make_shared<WindowFocusedEvent>();
+                auto event = CreateRef<WindowFocusedEvent>();
                 pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
             } else {
-                auto event = std::make_shared<WindowDefocusedEvent>();
+                auto event = CreateRef<WindowDefocusedEvent>();
                 pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
             }
         });
 
         glfwSetFramebufferSizeCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, int width, int height) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<FrameBufferResizedEvent>(width, height);
+            auto event = CreateRef<FrameBufferResizedEvent>(width, height);
             pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
         });
 
@@ -63,18 +63,18 @@ namespace Octo {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
 
             if(action == GLFW_PRESS) {
-                auto event = std::make_shared<ButtonPressedEvent>(static_cast<ButtonCode>(button));
+                auto event = CreateRef<ButtonPressedEvent>(static_cast<ButtonCode>(button));
                 pEventQueue->m_input.m_buttons[static_cast<int>(event->button())] = event;
             }
             else if(action == GLFW_RELEASE) {
-                auto event = std::make_shared<ButtonReleasedEvent>(static_cast<ButtonCode>(button));
+                auto event = CreateRef<ButtonReleasedEvent>(static_cast<ButtonCode>(button));
                 pEventQueue->m_input.m_buttons[static_cast<int>(event->button())] = event;
             }
         });
 
         glfwSetCursorPosCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, double x, double y) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<CursorMovedEvent>(x, y);
+            auto event = CreateRef<CursorMovedEvent>(x, y);
             pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
         });
 
@@ -82,18 +82,18 @@ namespace Octo {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
 
             if(entered == GLFW_TRUE) {
-                auto event = std::make_shared<CursorEnteredEvent>();
+                auto event = CreateRef<CursorEnteredEvent>();
                 pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
             }
             else { // Mouse left
-                auto event = std::make_shared<CursorLeftEvent>();
+                auto event = CreateRef<CursorLeftEvent>();
                 pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
             }
         });
 
         glfwSetScrollCallback(pWindow->native(), [](GLFWwindow* pGLFWwindow, double x, double y) {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
-            auto event = std::make_shared<MouseScrolledEvent>(x, y);
+            auto event = CreateRef<MouseScrolledEvent>(x, y);
             pEventQueue->m_queue.push(std::dynamic_pointer_cast<Event>(event));
         });
 
@@ -101,15 +101,15 @@ namespace Octo {
             GET_EVENT_QUEUE_IN_CALLBACK(pGLFWwindow);
 
             if(action == GLFW_PRESS) {
-                auto event = std::make_shared<KeyPressedEvent>(static_cast<KeyCode>(code));
+                auto event = CreateRef<KeyPressedEvent>(static_cast<KeyCode>(code));
                 pEventQueue->m_input.m_keys[(int)event->code()] = event;
             }
             else if(action == GLFW_RELEASE) {
-                auto event = std::make_shared<KeyReleasedEvent>(static_cast<KeyCode>(code));
+                auto event = CreateRef<KeyReleasedEvent>(static_cast<KeyCode>(code));
                 pEventQueue->m_input.m_keys[(int)event->code()] = event;
             }
             else if(action == GLFW_REPEAT) {
-                auto event = std::make_shared<KeyRepeatedEvent>(static_cast<KeyCode>(code));
+                auto event = CreateRef<KeyRepeatedEvent>(static_cast<KeyCode>(code));
                 pEventQueue->m_input.m_keys[(int)event->code()] = event;
             }
         });
@@ -117,13 +117,13 @@ namespace Octo {
 #undef GET_EVENT_QUEUE_IN_CALLBACK
     }
 
-    bool EventQueue::query(std::shared_ptr<Event> &pEvent) {
+    bool EventQueue::query(Ref<Event> &event) {
         if(!m_queue.empty()) {
-            pEvent = m_queue.front();
+            event = m_queue.front();
             m_queue.pop();
             return true;
         } else {
-            pEvent = nullptr;
+            event = nullptr;
             return false;
         }
 

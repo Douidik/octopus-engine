@@ -14,16 +14,16 @@ namespace Octo {
 
         static void Shutdown();
 
-        static inline std::shared_ptr<spdlog::logger> GetOctoLogger() {
-            return s_pOctoLogger;
+        static inline Ref<spdlog::logger> GetOctoLogger() {
+            return s_octoLogger;
         }
-        static inline std::shared_ptr<spdlog::logger> GetAppLogger() {
-            return s_pAppLogger;
+        static inline Ref<spdlog::logger> GetAppLogger() {
+            return s_appLogger;
         }
 
     private:
         /* We create two loggers, one for the engine and the other for the application */
-        static std::shared_ptr<spdlog::logger> s_pOctoLogger, s_pAppLogger;
+        static Ref<spdlog::logger> s_octoLogger, s_appLogger;
     };
 }
 

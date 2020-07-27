@@ -6,6 +6,15 @@
 
 namespace Octo {
 
+    Ref <Texture2D> Texture2D::Create(const std::string &filepath, bool bFreeImage) {
+        return CreateRef<Texture2D>(filepath, bFreeImage);
+    }
+
+    Texture2D::~Texture2D() {
+        glDeleteTextures(1, &m_uRendererID);
+    }
+
+
     Image::Image(const std::string &filepath) {
         if(!std::filesystem::exists(filepath)) {
             OCTO_LOG_ERROR("Failed to read image from: "s + filepath);
@@ -49,8 +58,8 @@ namespace Octo {
         free();
     }
 
-    Texture2D::Texture2D(const std::string& imageFilePath, bool bFreeImage)
-        :m_image(imageFilePath)
+    Texture2D::Texture2D(const std::string& filepath, bool bFreeImage)
+        :m_image(filepath)
     {
         GLCall(glGenTextures(1, &m_uRendererID));
         GLCall(glBindTexture(GL_TEXTURE_2D, m_uRendererID));
@@ -75,5 +84,4 @@ namespace Octo {
             m_image.free();
         }
     }
-
 }

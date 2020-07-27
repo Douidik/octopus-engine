@@ -16,7 +16,10 @@ namespace Octo {
 
     class Texture2D {
     public:
-        Texture2D(const std::string& imageFilePath, bool bFreeImage = true);
+        static Ref<Texture2D> Create(const std::string& filepath, bool bFreeImage = true);
+
+        Texture2D(const std::string& filepath, bool bFreeImage);
+        ~Texture2D();
 
         inline void bind(GLint iSlot = 0) const {
             GLCall(glActiveTexture(GL_TEXTURE0 + iSlot));
@@ -24,6 +27,10 @@ namespace Octo {
         }
 
         inline void unbind() const {
+            GLCall(glBindTexture(GL_TEXTURE_2D, 0));
+        }
+
+        static inline void UnBind() {
             GLCall(glBindTexture(GL_TEXTURE_2D, 0));
         }
 

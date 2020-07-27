@@ -24,12 +24,12 @@ namespace Octo {
 
         CursorPosition getCursorPosition() const;
 
-        std::shared_ptr<KeyInputEvent> getKey(KeyCode code) const;
-        std::shared_ptr<ButtonInputEvent> getButton(ButtonCode code) const;
+        Ref<KeyInputEvent> getKey(KeyCode code) const;
+        Ref<ButtonInputEvent> getButton(ButtonCode code) const;
 
     private:
-        std::array<std::shared_ptr<KeyInputEvent>, OCTO_KEY_COUNT> m_keys;
-        std::array<std::shared_ptr<ButtonInputEvent>, OCTO_BUTTON_COUNT> m_buttons;
+        std::array<Ref<KeyInputEvent>, OCTO_KEY_COUNT> m_keys;
+        std::array<Ref<ButtonInputEvent>, OCTO_BUTTON_COUNT> m_buttons;
 
         Window* m_pWindow;
     };

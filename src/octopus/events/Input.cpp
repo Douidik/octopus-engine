@@ -10,11 +10,11 @@ namespace Octo {
     {
         /* Keys and buttons values are defaulted by the released event */
         for(int i = 0; i < OCTO_KEY_COUNT; i++) {
-            m_keys[i] = std::make_shared<KeyReleasedEvent>(static_cast<KeyCode>(i));
+            m_keys[i] = CreateRef<KeyReleasedEvent>(static_cast<KeyCode>(i));
         }
 
         for(int i = 0; i < OCTO_BUTTON_COUNT; i++) {
-            m_buttons[i] = std::make_shared<ButtonReleasedEvent>(static_cast<ButtonCode>(i));
+            m_buttons[i] = CreateRef<ButtonReleasedEvent>(static_cast<ButtonCode>(i));
         }
     }
 
@@ -43,11 +43,11 @@ namespace Octo {
         return m_buttons[static_cast<int>(code)]->type() == EventType::ButtonReleased;
     }
 
-    std::shared_ptr<KeyInputEvent> Input::getKey(KeyCode code) const {
+    Ref<KeyInputEvent> Input::getKey(KeyCode code) const {
         return m_keys[static_cast<int>(code)];
     }
 
-    std::shared_ptr<ButtonInputEvent> Input::getButton(ButtonCode code) const {
+    Ref<ButtonInputEvent> Input::getButton(ButtonCode code) const {
         return m_buttons[static_cast<int>(code)];
     }
 
